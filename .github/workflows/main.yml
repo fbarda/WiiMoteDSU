@@ -50,10 +50,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: builds
+        tag_name: commit_${{ github.sha }}
         release_name: Release for commit ${{ github.sha }}
-        draft: false
-        prerelease: false
     
     # Upload generated apk to the artifacts.
     - uses: actions/upload-release-asset@v1.0.2
